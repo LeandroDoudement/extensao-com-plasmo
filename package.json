@@ -1,9 +1,9 @@
 {
-  "name": "extensao-com-plasmo",
-  "displayName": "Extensao com plasmo",
+  "name": "youtube-toolbox",
+  "displayName": "Youtube Toolbox",
   "version": "0.0.1",
-  "description": "A basic Plasmo extension.",
-  "author": "Hyerdev",
+  "description": "A basic youtube extension that offers some facilities.",
+  "author": "LeandroDoudement",
   "scripts": {
     "dev": "plasmo dev",
     "build": "plasmo build",
@@ -26,6 +26,10 @@
   "manifest": {
     "host_permissions": [
       "https://*/*"
+    ],
+    "permissions": [
+      "contextMenus",
+      "tabs"
     ]
   }
 }
