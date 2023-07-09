@@ -14,69 +14,87 @@ function IndexPopup() {
   return (
     <div
       style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(3, 1fr)",
-        gridTemplateRows: "repeat(2, 1fr)",
+        display: "flex",
+        flexDirection: "column",
         gap: "10px"
       }}>
-      <div>
-        <button onClick={() => handleButtonClick("https://www.youtube.com")}>
-          <img src={homeIcon} alt="Home Icon" width={25} height={25} />
-          <p>Início</p>
-        </button>
+      <div
+        style={{
+          display: "flex",
+          gap: "10px"
+        }}>
+        <div>
+          <button
+            onClick={() => handleButtonClick("https://www.youtube.com")}
+            style={{ width: 100, height: 100 }}>
+            <img src={homeIcon} alt="Home Icon" width={25} height={25} />
+            <p>Início</p>
+          </button>
+        </div>
+        <div>
+          <button
+            onClick={() =>
+              handleButtonClick("https://www.youtube.com/feed/subscriptions")
+            }
+            style={{ width: 100, height: 100 }}>
+            <img
+              src={subscriptionsIcon}
+              alt="Subscriptions Icon"
+              width={25}
+              height={25}
+            />
+            <p>Inscrições</p>
+          </button>
+        </div>
+        <div>
+          <button
+            onClick={() =>
+              handleButtonClick("https://www.youtube.com/feed/library")
+            }
+            style={{ width: 100, height: 100 }}>
+            <img src={libraryIcon} alt="Library Icon" width={25} height={25} />
+            <p>Biblioteca</p>
+          </button>
+        </div>
       </div>
-      <div>
-        <button
-          onClick={() =>
-            handleButtonClick("https://www.youtube.com/feed/subscriptions")
-          }>
-          <img
-            src={subscriptionsIcon}
-            alt="Subscriptions Icon"
-            width={25}
-            height={25}
-          />
-          <p>Inscrições</p>
-        </button>
-      </div>
-      <div>
-        <button
-          onClick={() =>
-            handleButtonClick("https://www.youtube.com/feed/library")
-          }>
-          <img src={libraryIcon} alt="Library Icon" width={25} height={25} />
-          <p>Biblioteca</p>
-        </button>
-      </div>
-      <div>
-        <button
-          onClick={() =>
-            handleButtonClick("https://www.youtube.com/feed/history")
-          }>
-          <img src={historyIcon} alt="History Icon" width={25} height={25} />
-          <p>Histórico</p>
-        </button>
-      </div>
-      <div>
-        <button
-          onClick={() =>
-            handleButtonClick("https://www.youtube.com/playlist?list=WL")
-          }>
-          <img
-            src={watchLaterIcon}
-            alt="Watch Later Icon"
-            width={25}
-            height={25}
-          />
-          <p>Assistir mais tarde</p>
-        </button>
-      </div>
-      <div>
-        <button
-          onClick={() => handleButtonClick("https://www.youtube.com/shorts")}>
-          <img src={shortsIcon} alt="Shorts Icon" width={25} height={25} />
-          <p>Shorts</p>
-        </button>
+      <div
+        style={{
+          display: "flex",
+          gap: "10px"
+        }}>
+        <div>
+          <button
+            onClick={() =>
+              handleButtonClick("https://www.youtube.com/feed/history")
+            }
+            style={{ width: 100, height: 100 }}>
+            <img src={historyIcon} alt="History Icon" width={25} height={25} />
+            <p>Histórico</p>
+          </button>
+        </div>
+        <div>
+          <button
+            onClick={() =>
+              handleButtonClick("https://www.youtube.com/playlist?list=WL")
+            }
+            style={{ width: 100, height: 100 }}>
+            <img
+              src={watchLaterIcon}
+              alt="Watch Later Icon"
+              width={25}
+              height={25}
+            />
+            <p>Assistir mais tarde</p>
+          </button>
+        </div>
+        <div>
+          <button
+            onClick={() => handleButtonClick("https://www.youtube.com/shorts")}
+            style={{ width: 100, height: 100 }}>
+            <img src={shortsIcon} alt="Shorts Icon" width={25} height={25} />
+            <p>Shorts</p>
+          </button>
+        </div>
       </div>
     </div>
   )
