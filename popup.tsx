@@ -5,11 +5,16 @@ import libraryIcon from "data-base64:~assets/library-icon.png"
 import shortsIcon from "data-base64:~assets/shorts-icon.png"
 import subscriptionsIcon from "data-base64:~assets/subscriptions-icon.png"
 
+import { useStorage } from "@plasmohq/storage/hook"
+
+import { HISTORY_KEY } from "~constants"
+
 function IndexPopup() {
   const handleButtonClick = (url) => {
-    console.log("teste")
     chrome.tabs.create({ url })
   }
+
+  const [history, _, { remove }] = useStorage(HISTORY_KEY)
 
   return (
     <div
@@ -25,8 +30,8 @@ function IndexPopup() {
         }}>
         <div>
           <button
-            onClick={() => handleButtonClick("https://www.youtube.com")}
-            style={{ width: 100, height: 100 }}>
+            style={{ width: 100, height: 100 }}
+            onClick={() => handleButtonClick("https://www.youtube.com")}>
             <img src={homeIcon} alt="Home Icon" width={25} height={25} />
             <p>Início</p>
           </button>
@@ -95,6 +100,21 @@ function IndexPopup() {
             <p>Shorts</p>
           </button>
         </div>
+      </div>
+      <div>
+        <button onClick={() => remove()} style={{ width: 100, height: 100 }}>
+          <p>Limpar histórico</p>
+        </button>
+      </div>
+      <div>
+        <h2>Histórico de busca</h2>
+        <ul>
+          {history
+            ? JSON.parse(history).map((query, index) => (
+                <li key={index}>{query}</li>
+              ))
+            : null}
+        </ul>
       </div>
     </div>
   )
