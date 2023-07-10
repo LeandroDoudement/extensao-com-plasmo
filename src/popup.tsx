@@ -7,7 +7,7 @@ import subscriptionsIcon from "data-base64:~assets/subscriptions-icon.png"
 
 import { useStorage } from "@plasmohq/storage/hook"
 
-import { YoutubeShortcut } from "~components/youtubeShortcut"
+import { ShortcutButton } from "~components/shortcutButton"
 import {
   HISTORY_URL,
   HOME_URL,
@@ -19,10 +19,6 @@ import {
 import { HISTORY_KEY } from "~constants"
 
 function IndexPopup() {
-  const handleButtonClick = (url) => {
-    chrome.tabs.create({ url })
-  }
-
   const [history, _, { remove }] = useStorage(HISTORY_KEY)
 
   return (
@@ -38,20 +34,20 @@ function IndexPopup() {
           display: "flex",
           gap: "10px"
         }}>
-        <YoutubeShortcut
-          onClick={() => handleButtonClick(HOME_URL)}
+        <ShortcutButton
+          url={HOME_URL}
           imageSrc={homeIcon}
           altText="Home Icon"
           buttonText="Início"
         />
-        <YoutubeShortcut
-          onClick={() => handleButtonClick(SUBSCRIPTIONS_URL)}
+        <ShortcutButton
+          url={SUBSCRIPTIONS_URL}
           imageSrc={subscriptionsIcon}
           altText="Subscriptions Icon"
           buttonText="Inscrições"
         />
-        <YoutubeShortcut
-          onClick={() => handleButtonClick(LIBRARY_URL)}
+        <ShortcutButton
+          url={LIBRARY_URL}
           imageSrc={libraryIcon}
           altText="Library Icon"
           buttonText="Biblioteca"
@@ -62,20 +58,20 @@ function IndexPopup() {
           display: "flex",
           gap: "10px"
         }}>
-        <YoutubeShortcut
-          onClick={() => handleButtonClick(HISTORY_URL)}
+        <ShortcutButton
+          url={HISTORY_URL}
           imageSrc={historyIcon}
           altText="History Icon"
           buttonText="Histórico"
         />
-        <YoutubeShortcut
-          onClick={() => handleButtonClick(WATCH_LATER_URL)}
+        <ShortcutButton
+          url={WATCH_LATER_URL}
           imageSrc={watchLaterIcon}
           altText="Watch Later Icon"
           buttonText="Assistir mais tarde"
         />
-        <YoutubeShortcut
-          onClick={() => handleButtonClick(SHORTS_URL)}
+        <ShortcutButton
+          url={SHORTS_URL}
           imageSrc={shortsIcon}
           altText="Shorts Icon"
           buttonText="Shorts"
@@ -102,9 +98,9 @@ function IndexPopup() {
         </div>
         <ul>
           {history
-            ? JSON.parse(history).map((query, index) => (
+            ? JSON.parse(history).map((searchQuery: string, index: number) => (
                 <li key={index} style={{ marginBottom: 10 }}>
-                  {query}
+                  {searchQuery}
                 </li>
               ))
             : null}
