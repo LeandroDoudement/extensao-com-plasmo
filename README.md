@@ -1,7 +1,7 @@
 # Youtube Toolbox
 
 Este repositório foi criado como parte de um desafio técnico. O objetivo era escolher um site favorito, em que nesse caso foi o **Youtube** e desenvolver uma extensão com 3 funcionalidades.
-"Youtube Toolbox" é uma extensão para o navegador Google Chrome, criada para aprimorar a experiência do usuário ao utilizar o YouTube. Ela oferece três funcionalidades úteis que visam facilitar a busca de vídeos relacionados a um determinado texto selecionado, acessar rápidamente as páginas do Youtube e também gravar o histórico dessas buscas.
+"Youtube Toolbox" é uma extensão para o navegador Google Chrome, criada para aprimorar a experiência do usuário ao utilizar o YouTube. Ela oferece três funcionalidades úteis que visam facilitar a busca de vídeos relacionados a um determinado texto selecionado, acessar rapidamente as páginas do Youtube e também gravar o histórico dessas buscas.
 
 ## Funcionalidades
 
@@ -27,7 +27,7 @@ Para começar a usar a extensão "Youtube Toolbox", siga as etapas abaixo:
 3. Use o comando `pnpm dev`.
 4. Abra seu navegador e vá para a página de extensões.
 5. Ative o modo de desenvolvedor.
-6. Carregue a extensão selecionando "Load unpacked" e selecione a paste criada em build pelo comando pnpm dev.
+6. Carregue a extensão selecionando "Carregar sem compactação" ou em inglês "Load unpacked" e selecione a pasta criada em build pelo comando pnpm dev.
 7. Agora, a extensão "Youtube Toolbox" estará disponível na barra de extensões do navegador.
 
 
