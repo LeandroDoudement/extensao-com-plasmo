@@ -15,8 +15,8 @@ Este repositório foi criado como parte de um desafio técnico. O objetivo era e
    - [Assistir Mais Tarde](https://www.youtube.com/playlist?list=WL): Abre a lista "Assistir Mais Tarde" do YouTube.
    - [YouTube Shorts](https://www.youtube.com/shorts): Navega pelos vídeos curtos populares no YouTube.
 
-3. **Histórico de busca:** Agora a extensão também possui um histórico de busca, que grava todas as pesquisas realizadas através do menu com opções. Você pode visualizar o histórico no menu da extensão.
-   - Para limpar todo o histórico de busca, utilize o botão "Limpar Histórico".
+3. **Histórico de busca:** A extensão também possui um histórico de busca, que grava todas as pesquisas realizadas através do menu com opções. Você pode visualizar o histórico no menu da extensão **somente quando alguma pesquisa foi feita com a primeira funcionalidade**.
+   - Para limpar todo o histórico de busca, utilize o botão "Limpar", ao limpar o **histórico de busca some**.
 
 ## Como usar
 
