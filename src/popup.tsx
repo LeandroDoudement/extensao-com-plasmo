@@ -2,8 +2,10 @@ import watchLaterIcon from "data-base64:~assets/clock-icon.png"
 import historyIcon from "data-base64:~assets/history-icon.png"
 import homeIcon from "data-base64:~assets/home-icon.png"
 import libraryIcon from "data-base64:~assets/library-icon.png"
+import newTabIcon from "data-base64:~assets/new-tab-icon.png"
 import shortsIcon from "data-base64:~assets/shorts-icon.png"
 import subscriptionsIcon from "data-base64:~assets/subscriptions-icon.png"
+import trashIcon from "data-base64:~assets/trash-icon.png"
 
 import { useStorage } from "@plasmohq/storage/hook"
 
@@ -23,12 +25,25 @@ function IndexPopup() {
 
   return (
     <div
+      className="popup"
       style={{
         display: "flex",
         flexDirection: "column",
         gap: "10px"
       }}>
-      <h1>Youtube Toolbox</h1>
+      <div
+        style={{
+          background: "#b60c0c",
+          padding: "5px 10px"
+        }}>
+        <h1
+          style={{
+            color: "#fff",
+            font: "bold sans-serif"
+          }}>
+          Youtube Toolbox
+        </h1>
+      </div>
       <div
         style={{
           display: "flex",
@@ -77,35 +92,87 @@ function IndexPopup() {
           buttonText="Shorts"
         />
       </div>
-      <div>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between"
-          }}>
-          <h2>Histórico de busca</h2>
-          <button
-            onClick={() => remove()}
+      {!!history?.length && (
+        <div>
+          <div
             style={{
-              width: 60,
-              height: 23,
-              alignSelf: "center",
-              border: "1px solid black",
-              borderRadius: "5%"
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              background: "#b60c0c"
             }}>
-            <p style={{ margin: 0, textAlign: "center" }}>Limpar</p>
-          </button>
+            <h2
+              style={{
+                padding: "0 5px",
+                color: "#fff"
+              }}>
+              Histórico de busca
+            </h2>
+
+            <button
+              onClick={() => remove()}
+              style={{
+                display: "flex",
+                border: "none",
+                cursor: "pointer",
+                borderRadius: "5%",
+                alignItems: "center",
+                width: 100,
+                height: 30,
+                gap: "10px",
+                marginRight: "10px"
+              }}>
+              <img src={trashIcon} alt="Trash Icon" width={20} height={20} />
+              <p style={{ margin: 0, textAlign: "center" }}>Limpar</p>
+            </button>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              padding: "0 10px",
+              flexDirection: "column",
+              gap: "5px",
+              marginTop: "5px"
+            }}>
+            {history
+              ? JSON.parse(history).map(
+                  (searchQuery: string, index: number) => (
+                    <div
+                      key={index}
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        textAlign: "center",
+                        width: "100%",
+                        padding: "10px 10px",
+                        background: "#efefef",
+                        fontSize: "14px",
+                        color: "#333333",
+                        cursor: "pointer"
+                      }}>
+                      <a
+                        onClick={(event) => {
+                          event.preventDefault()
+                          chrome.tabs.create({
+                            url: `https://www.youtube.com/results?search_query=${searchQuery}`
+                          })
+                        }}>
+                        {searchQuery}
+                      </a>
+                      <img
+                        src={newTabIcon}
+                        alt="Trash Icon"
+                        width={20}
+                        height={20}
+                      />
+                    </div>
+                  )
+                )
+              : null}
+          </div>
         </div>
-        <ul>
-          {history
-            ? JSON.parse(history).map((searchQuery: string, index: number) => (
-                <li key={index} style={{ marginBottom: 10 }}>
-                  {searchQuery}
-                </li>
-              ))
-            : null}
-        </ul>
-      </div>
+      )}
     </div>
   )
 }
